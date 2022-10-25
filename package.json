@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "analyze:prod": "cross-env NODE_ENV=production webpack --mode production --analyze",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "start:dev": "cross-env NODE_ENV=development webpack serve --mode development --hot --open",
-    "lint": "eslint ./src/**/*.{ts,tsx}"
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "prepare": "husky install"
   },
   "keywords": [
     "React",
@@ -50,9 +52,11 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
+    "husky": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "webpack-bundle-analyzer": "^4.6.1"
   }
 }
