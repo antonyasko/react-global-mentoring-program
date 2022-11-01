@@ -1,6 +1,5 @@
 .genre-toggle-container {
   background-color: #232323;
-  height: 110px;
 
   button {
     background: 0;
@@ -19,6 +18,7 @@
 
     &.active {
       border-color: #f65261;
+      z-index: 2;
     }
   }
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "analyze:prod": "cross-env NODE_ENV=production webpack --mode production --analyze",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
+    "build:dev": "cross-env NODE_ENV=production webpack --mode development",
     "start:dev": "cross-env NODE_ENV=development webpack serve --mode development --hot --open",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "prepare": "husky install"
@@ -46,7 +47,8 @@
     "sass-loader": "^13.1.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "file-loader": "^6.2.0"
   },
   "dependencies": {
     "@types/react": "^18.0.21",

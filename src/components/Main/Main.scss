@@ -1,0 +1,72 @@
+.main-content {
+    background-color: #232323;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .cards-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 57px;
+        margin-right: 57px;
+        height: 60px;
+        width: calc(100% - 2 * 57px);
+
+        .card-filters {
+            display: flex;
+            align-items: center;
+
+            .filters-label {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.888889px;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                mix-blend-mode: normal;
+                opacity: 0.6;
+                margin-right: 31px
+            }
+
+            select, option {
+                background-color: #232323;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.888889px;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .line {
+        height: 2px;
+        width: calc(100% - 57px * 2);
+        background-color: #424242;
+        border-bottom: 2px solid #080707;
+        position: relative;
+        top: -5px;
+        left: 57px;
+    }
+
+    .cards-counter {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        color: #FFFFFF;
+        margin: 24px 57px 28px;
+
+        .count {
+            font-weight: bold;
+        }
+    }
+}
