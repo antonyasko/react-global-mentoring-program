@@ -1,0 +1,17 @@
+.logo {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F65261;
+    width: min-content;
+    padding: 15px 0;
+    margin: 0 36px;
+    z-index: 1;
+    position: relative;
+
+    .logo-partial {
+        font-weight: bold;
+    }
+}
