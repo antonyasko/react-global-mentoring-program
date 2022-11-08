@@ -1,4 +1,4 @@
-export interface ICard {
+interface ICardData {
   id: string;
   posterUrl: string;
   name: string;
@@ -6,7 +6,7 @@ export interface ICard {
   year: number;
 }
 
-export const cards: ICard[] = [
+export const cardsData: ICardData[] = [
   {
     id: '1',
     posterUrl:

@@ -1,0 +1,25 @@
+.close {
+    &-icon {
+        display: block;
+    }
+
+    &.xs {
+        width: 12px;
+        height: 12px;
+
+        .close-icon {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &.xl {
+        width: 22px;
+        height: 22px;
+
+        .close-icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}

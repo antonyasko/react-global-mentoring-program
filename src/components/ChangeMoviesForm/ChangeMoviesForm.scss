@@ -1,0 +1,70 @@
+.change-movies-form {
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: 521px 301px;
+        gap: 30px;
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+        }
+    }
+
+    &__heading, &__label, &__text-input {
+        font-family: 'Montserrat';
+        font-style: normal;
+    }
+
+    &__heading, &__text-input {
+        color: #FFFFFF;
+        align-self: start;
+    }
+
+    &__label, &__text-input {
+        mix-blend-mode: normal;
+    }
+
+    &__heading {
+        font-weight: 300;
+        font-size: 40px;
+        line-height: 49px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.888889px;
+        text-transform: uppercase;
+        color: #F65261;
+        opacity: 0.8;
+        margin-bottom: 13px;
+        align-self: flex-start;
+    }
+
+    &__text-input {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        opacity: 0.8;
+        width: 100%;
+        background: rgba(50, 50, 50, 0.948044);
+        padding: 18px;
+        box-sizing: border-box;
+        border: 0;
+
+        &:active {
+            opacity: 1;
+        }
+    }
+}

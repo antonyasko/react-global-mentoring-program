@@ -1,26 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 
-import { ICard } from '../../Main/cards';
+import { ICard } from './Card.types';
+
+import CloseButton from '../../CloseButton/CloseButton';
+import DeleteMovieForm from '../../DeleteMovieForm/DeleteMovieForm';
+import ChangeMoviesForm from '../../ChangeMoviesForm/ChangeMoviesForm';
+import ModalContext from '../../../store/modalContext';
 
 import more from '../../../assets/svg/more.svg';
-import close from '../../../assets/svg/close.svg';
 import img from '../../../assets/images/POSTER.jpg';
 
 import './Card.scss';
 
-function Card({ posterUrl, name, genre, year, id }: ICard): JSX.Element {
-  const [isSettingsShowing, setIsSettingsShowing] = useState(false);
+function Card({ posterUrl, name, genre, year, id, onDeleteCard }: ICard): JSX.Element {
+  const [isSettingsShowing, setIsSettingsShowing] = useState<boolean>(false);
 
-  function onButtonClick(): void {
+  const { setModalState } = useContext(ModalContext);
+
+  const onButtonClick = useCallback(() => {
     setIsSettingsShowing((p) => !p);
-  }
+  }, []);
+
+  const onConfirmClick = useCallback(() => {
+    onDeleteCard(id);
+    setModalState({
+      isOpen: false,
+      content: null,
+    });
+  }, [id, onDeleteCard, setModalState]);
+
+  const onSubmitClick = useCallback(() => {
+    setModalState({
+      isOpen: false,
+      content: null,
+    });
+  }, [setModalState]);
 
   function onEditClick(): void {
     setIsSettingsShowing(false);
+
+    setModalState({
+      isOpen: true,
+      content: (
+        <ChangeMoviesForm
+          type="edit"
+          heading="Edit movie"
+          onReset={() => console.log('reset')}
+          onSubmit={onSubmitClick}
+        />
+      ),
+    });
   }
 
   function onDeleteClick(): void {
     setIsSettingsShowing(false);
+
+    setModalState({
+      isOpen: true,
+      content: <DeleteMovieForm onConfirm={onConfirmClick} />,
+    });
   }
 
   return (
@@ -37,9 +75,7 @@ function Card({ posterUrl, name, genre, year, id }: ICard): JSX.Element {
         </button>
       ) : (
         <div className="settings">
-          <button onClick={onButtonClick} className="close" type="button">
-            <img src={close} alt="close" />
-          </button>
+          <CloseButton onClick={onButtonClick} size="xs" />
           <button onClick={onEditClick} className="edit" type="button">
             Edit
           </button>

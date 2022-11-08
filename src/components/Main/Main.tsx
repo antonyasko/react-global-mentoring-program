@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { GenreToggle } from '../GenreToggle/GenreToggle';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
-
-import { cards } from './cards';
+import CardsDataContext from '../../store/cardsDataContext';
 
 import './Main.scss';
 
 function Main(): JSX.Element {
+  const { cards } = useContext(CardsDataContext);
+
   return (
     <main className="main-content">
       <ErrorBoundary>
@@ -28,7 +29,7 @@ function Main(): JSX.Element {
         <span className="cards-counter">
           <span className="count">{cards.length}</span> movies found
         </span>
-        <Cards cards={cards} />
+        <Cards />
       </ErrorBoundary>
     </main>
   );
