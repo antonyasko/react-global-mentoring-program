@@ -1,58 +1,79 @@
 interface ICardData {
   id: string;
-  posterUrl: string;
-  name: string;
-  genre: string;
-  year: number;
+  movieUrl: string;
+  title: string;
+  genre: string[];
+  releaseDate: string;
+  overview: string;
+  rating: string;
+  runtime: string;
 }
 
 export const cardsData: ICardData[] = [
   {
     id: '1',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
   {
     id: '2',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
   {
     id: '3',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
   {
     id: '4',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
   {
     id: '5',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
   {
     id: '6',
-    posterUrl:
-      'https://en.wikipedia.org/wiki/Pulp_Fiction#/media/File:Pulp_Fiction_(1994)_poster.jpg',
-    name: 'Pulp Fiction',
-    genre: 'Action & Adventure',
-    year: 2004,
+    movieUrl:
+      'https://media.kg-portal.ru/movies/s/schoolforgoodandevil/posters/schoolforgoodandevil_2.jpg',
+    title: 'Pulp Fiction',
+    genre: ['Action & Adventure'],
+    releaseDate: '2004-03-25',
+    overview: 'Very interesting film',
+    rating: '9.5',
+    runtime: '128',
   },
 ];

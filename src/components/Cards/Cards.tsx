@@ -19,27 +19,20 @@ function Cards(): JSX.Element {
     [cards, setCards]
   );
 
-  const editCard = useCallback((updatedCard: ICardData): void => {
-    console.log(updatedCard);
-  }, []);
-
-  const addCard = useCallback((newCard: ICardData): void => {
-    setCards([...cards, newCard]);
-  }, []);
-
   return (
     <ul className="cards">
-      {cards.map(({ id, posterUrl, year, name, genre }) => (
+      {cards.map(({ id, movieUrl, releaseDate, title, genre, overview, rating, runtime }) => (
         <Card
           key={id}
           id={id}
-          posterUrl={posterUrl}
-          year={year}
-          name={name}
+          movieUrl={movieUrl}
+          releaseDate={releaseDate}
+          title={title}
           genre={genre}
+          overview={overview}
+          rating={rating}
+          runtime={runtime}
           onDeleteCard={deleteMovie}
-          onEditCard={editCard}
-          onAddCard={addCard}
         />
       ))}
     </ul>

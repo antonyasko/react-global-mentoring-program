@@ -1,18 +1,22 @@
 export interface ICardData {
   id: string;
-  posterUrl: string;
-  name: string;
-  genre: string;
-  year: number;
+  movieUrl: string;
+  title: string;
+  genre: string[];
+  releaseDate: string;
+  overview: string;
+  rating: string;
+  runtime: string;
 }
 
 export interface ICard {
   id: string;
-  posterUrl: string;
-  name: string;
-  genre: string;
-  year: number;
+  movieUrl: string;
+  title: string;
+  genre: string[];
+  releaseDate: string;
+  overview: string;
+  rating: string;
+  runtime: string;
   onDeleteCard: (id: string) => void;
-  onEditCard: (updatedCard: ICardData) => void;
-  onAddCard: (newCard: ICardData) => void;
 }

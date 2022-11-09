@@ -19,11 +19,11 @@ export class GenreToggle extends PureComponent<IGenreToggleProps, IGenreToggleSt
   }
 
   onButtonClick(e: SyntheticEvent<HTMLButtonElement>): void {
-    console.log('Genre: ', (e.target as HTMLButtonElement).dataset.name);
+    console.log('Genre: ', (e.target as HTMLButtonElement).dataset.genre);
 
     this.setState((state) => ({
       ...state,
-      activeGenre: (e.target as HTMLButtonElement).dataset.name as string,
+      activeGenre: (e.target as HTMLButtonElement).dataset.genre as string,
     }));
   }
 
@@ -36,7 +36,7 @@ export class GenreToggle extends PureComponent<IGenreToggleProps, IGenreToggleSt
           <button
             type="button"
             className={genre === activeGenre ? 'active' : ''}
-            data-name={genre}
+            data-genre={genre}
             key={genre}
             onClick={this.onButtonClick.bind(this)}
           >

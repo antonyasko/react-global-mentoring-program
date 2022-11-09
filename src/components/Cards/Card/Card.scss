@@ -12,7 +12,10 @@
     }
 
     .description {
-        .name, .year, .genre {
+        position: absolute;
+        top: 430px;
+
+        .title, .release-date, .genre {
             margin: 0;
             color: #FFFFFF;
             font-family: 'Montserrat';
@@ -21,19 +24,19 @@
             mix-blend-mode: normal;
         }
 
-        .name, .year {
+        .title, .release-date {
             opacity: 0.7;
         }
 
-        .name, .genre {
+        .title, .genre {
             text-align: start;
         }
 
-        .year, .genre {
+        .release-date, .genre {
             font-size: 14px;
         }
 
-        .name {
+        .title {
             width: 232px;
             font-size: 18px;
             line-height: 22px;
@@ -47,7 +50,7 @@
             line-height: 17px;
         }
 
-        .year {
+        .release-date {
             text-align: center;
             border: 1px solid #979797;
             border-radius: 4px;
@@ -55,7 +58,7 @@
             height: 24px;
             position: absolute;
             right: 0;
-            bottom: 26px;
+            bottom: 23px;
             line-height: 24px;
         }
     }

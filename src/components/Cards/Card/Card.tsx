@@ -8,11 +8,20 @@ import ChangeMoviesForm from '../../ChangeMoviesForm/ChangeMoviesForm';
 import ModalContext from '../../../store/modalContext';
 
 import more from '../../../assets/svg/more.svg';
-import img from '../../../assets/images/POSTER.jpg';
 
 import './Card.scss';
 
-function Card({ posterUrl, name, genre, year, id, onDeleteCard }: ICard): JSX.Element {
+function Card({
+  movieUrl,
+  title,
+  genre,
+  releaseDate,
+  id,
+  overview,
+  rating,
+  runtime,
+  onDeleteCard,
+}: ICard): JSX.Element {
   const [isSettingsShowing, setIsSettingsShowing] = useState<boolean>(false);
 
   const { setModalState } = useContext(ModalContext);
@@ -29,13 +38,6 @@ function Card({ posterUrl, name, genre, year, id, onDeleteCard }: ICard): JSX.El
     });
   }, [id, onDeleteCard, setModalState]);
 
-  const onSubmitClick = useCallback(() => {
-    setModalState({
-      isOpen: false,
-      content: null,
-    });
-  }, [setModalState]);
-
   function onEditClick(): void {
     setIsSettingsShowing(false);
 
@@ -45,8 +47,16 @@ function Card({ posterUrl, name, genre, year, id, onDeleteCard }: ICard): JSX.El
         <ChangeMoviesForm
           type="edit"
           heading="Edit movie"
-          onReset={() => console.log('reset')}
-          onSubmit={onSubmitClick}
+          card={{
+            movieUrl,
+            title,
+            genre,
+            releaseDate,
+            id,
+            overview,
+            rating,
+            runtime,
+          }}
         />
       ),
     });
@@ -63,11 +73,11 @@ function Card({ posterUrl, name, genre, year, id, onDeleteCard }: ICard): JSX.El
 
   return (
     <li className="card">
-      <img className="poster" src={img} alt={name} />
+      <img className="poster" src={movieUrl} alt={title} />
       <div className="description">
-        <p className="name">{name}</p>
-        <p className="genre">{genre}</p>
-        <p className="year">{year}</p>
+        <p className="title">{title}</p>
+        <p className="genre">{genre.join(', ')}</p>
+        <p className="release-date">{new Date(releaseDate).getFullYear()}</p>
       </div>
       {!isSettingsShowing ? (
         <button onClick={onButtonClick} className="more" type="button">

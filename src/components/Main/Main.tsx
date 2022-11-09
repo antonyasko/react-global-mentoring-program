@@ -21,7 +21,7 @@ function Main(): JSX.Element {
             </label>
             <select id="filters">
               <option value="release date">release date</option>
-              <option value="name">name</option>
+              <option value="title">title</option>
             </select>
           </div>
         </nav>

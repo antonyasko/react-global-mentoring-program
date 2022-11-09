@@ -8,24 +8,10 @@ import './AddMovieButton.scss';
 function AddMovieButton(): JSX.Element {
   const { setModalState } = useContext(ModalContext);
 
-  // setModalContent(
-  //   <ChangeMoviesForm
-  //     onConfirm={(): void => {
-  //       setIsModalOpen(false);
-  //     }}
-  //   />
-  // );
   function onButtonClick(): void {
     setModalState({
       isOpen: true,
-      content: (
-        <ChangeMoviesForm
-          type="add"
-          heading="Add movie"
-          onReset={() => console.log('reset')}
-          onSubmit={() => console.log('submit')}
-        />
-      ),
+      content: <ChangeMoviesForm type="add" heading="Add movie" />,
     });
   }
 
