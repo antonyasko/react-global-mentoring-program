@@ -1,0 +1,67 @@
+@import '../../global.scss';
+
+.main-content {
+    background-color: $dark-gray-color;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .cards-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 57px;
+        margin-right: 57px;
+        height: 60px;
+        width: calc(100% - 2 * 57px);
+
+        &__filters {
+            display: flex;
+            align-items: center;
+
+            &__label, &__select, &__option {
+                font-size: $font-size-m;
+                line-height: $line-height-m;
+                font-style: normal;
+                letter-spacing: 0.888889px;
+                text-transform: uppercase;
+                color: $white-color;
+            }
+
+            &__label {
+                font-weight: 400;
+                mix-blend-mode: normal;
+                opacity: 0.6;
+                margin-right: 31px
+            }
+
+            &__select, &__option {
+                background-color: $dark-gray-color;
+                font-weight: 500;
+                border: none;
+            }
+        }
+    }
+
+    .line {
+        height: 2px;
+        width: calc(100% - 57px * 2);
+        background-color: $gray-color;
+        border-bottom: 2px solid $not-black-color;
+        position: relative;
+        top: -5px;
+        left: 57px;
+    }
+
+    .cards-counter {
+        font-style: normal;
+        font-weight: normal;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+        color: $white-color;
+        margin: 24px 57px 28px;
+
+        &__value {
+            font-weight: bold;
+        }
+    }
+}

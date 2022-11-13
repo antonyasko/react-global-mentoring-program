@@ -1,0 +1,44 @@
+@import '../../global.scss';
+
+.delete-movie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    &__title, &__description, &__confirm-button {
+        color: $white-color;
+        font-style: normal;
+        margin-top: 0;
+    }
+
+    &__title, &__confirm-button {
+        text-transform: uppercase;
+    }
+
+    &__description, &__confirm-button {
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+
+    &__title {
+        font-weight: 300;
+        font-size: $font-size-xxl;
+        line-height: $line-height-xxl;
+        letter-spacing: 1px;
+        margin-bottom: 37px;
+    }
+
+    &__description {
+        font-weight: 400;
+        margin-bottom: 52px;
+    }
+
+    &__confirm-button {
+        font-weight: 500;
+        text-align: center;
+        background: $dark-indian-red-color;
+        border-radius: $border-radius-standard;
+        padding: 17px 37px;
+        align-self: end;
+    }
+}
