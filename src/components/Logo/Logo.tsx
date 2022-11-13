@@ -1,10 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
+
+import { ILogoProps } from './Logo.types';
 
 import './Logo.scss';
-
-interface ILogoProps {
-  isMain: boolean;
-}
 
 function Logo({ isMain = false }: ILogoProps): JSX.Element {
   const logo = useMemo(
@@ -19,4 +17,4 @@ function Logo({ isMain = false }: ILogoProps): JSX.Element {
   return isMain ? <h1 className="logo">{logo}</h1> : <h2 className="logo">{logo}</h2>;
 }
 
-export default Logo;
+export default memo(Logo);

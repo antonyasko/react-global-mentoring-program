@@ -1,16 +1,11 @@
 import React, { PureComponent, SyntheticEvent } from 'react';
-import './GenreToggle.scss';
 
-interface IGenreToggleProps {
-  genres: string[];
-}
+import { IGenreTogglerProps, IGenreTogglerState } from './GenreToggler.types';
 
-interface IGenreToggleState extends IGenreToggleProps {
-  activeGenre: string;
-}
+import './GenreToggler.scss';
 
-export class GenreToggle extends PureComponent<IGenreToggleProps, IGenreToggleState> {
-  constructor(props: IGenreToggleProps) {
+export class GenreToggler extends PureComponent<IGenreTogglerProps, IGenreTogglerState> {
+  constructor(props: IGenreTogglerProps) {
     super(props);
     this.state = {
       activeGenre: 'all',
@@ -31,11 +26,11 @@ export class GenreToggle extends PureComponent<IGenreToggleProps, IGenreToggleSt
     const { activeGenre, genres } = this.state;
 
     return (
-      <div className="container genre-toggle-container">
+      <div className="container genre-toggler">
         {genres.map((genre) => (
           <button
             type="button"
-            className={genre === activeGenre ? 'active' : ''}
+            className={`genre-toggler__button ${genre === activeGenre ? 'active' : ''}`}
             data-genre={genre}
             key={genre}
             onClick={this.onButtonClick.bind(this)}

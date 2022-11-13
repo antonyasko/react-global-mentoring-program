@@ -1,25 +1,28 @@
-.close {
-    &-icon {
+.close-button {
+    $xs-size: 12px;
+    $xl-size: 22px;
+
+    &__icon {
         display: block;
     }
 
     &.xs {
-        width: 12px;
-        height: 12px;
+        width: $xs-size;
+        height: $xs-size;
 
-        .close-icon {
-            width: 12px;
-            height: 12px;
+        &__icon {
+            width: $xs-size;
+            height: $xs-size;
         }
     }
 
     &.xl {
-        width: 22px;
-        height: 22px;
+        width: $xl-size;
+        height: $xl-size;
 
-        .close-icon {
-            width: 22px;
-            height: 22px;
+        &__icon {
+            width: $xl-size;
+            height: $xl-size;
         }
     }
 }

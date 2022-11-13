@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 
-import { GenreToggle } from '../GenreToggle/GenreToggle';
+import { GenreToggler } from '../GenreToggler/GenreToggler';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
 import CardsDataContext from '../../store/cardsDataContext';
@@ -14,20 +14,24 @@ function Main(): JSX.Element {
     <main className="main-content">
       <ErrorBoundary>
         <nav className="cards-navigation">
-          <GenreToggle genres={['all', 'documentary', 'comedy', 'horror', 'crime']} />
-          <div className="card-filters">
-            <label className="filters-label" htmlFor="filters">
+          <GenreToggler genres={['all', 'documentary', 'comedy', 'horror', 'crime']} />
+          <div className="cards-navigation__filters">
+            <label className="cards-navigation__filters__label" htmlFor="filters">
               sort by
             </label>
-            <select id="filters">
-              <option value="release date">release date</option>
-              <option value="title">title</option>
+            <select className="cards-navigation__filters__select" id="filters">
+              <option className="cards-navigation__filters__option" value="release date">
+                release date
+              </option>
+              <option className="cards-navigation__filters__option" value="title">
+                title
+              </option>
             </select>
           </div>
         </nav>
         <div className="line" />
         <span className="cards-counter">
-          <span className="count">{cards.length}</span> movies found
+          <span className="cards-counter__value">{cards.length}</span> movies found
         </span>
         <Cards />
       </ErrorBoundary>
@@ -35,4 +39,4 @@ function Main(): JSX.Element {
   );
 }
 
-export default Main;
+export default memo(Main);

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import AddMovieButton from '../AddMovieButton/AddMovieButton';
 import Logo from '../Logo/Logo';
-import { SearchForm } from '../SearchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
 import img from '../../assets/images/header.jpg';
 
 import './Header.scss';
@@ -21,4 +21,4 @@ function Header(): JSX.Element {
   );
 }
 
-export default Header;
+export default memo(Header);

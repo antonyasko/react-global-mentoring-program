@@ -1,3 +1,5 @@
+@import '../../global.scss';
+
 .change-movies-form {
     width: 850px;
     display: flex;
@@ -8,7 +10,7 @@
         grid-template-columns: 521px 301px;
         gap: 16px;
 
-        .input-wrapper {
+        &__input-wrapper {
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -26,8 +28,8 @@
                 padding: 0;
                 list-style-type: none;
                 width: 100%;
-                background-color: #232323;
-                z-index: 5;
+                background-color: $dark-gray-color;
+                z-index: $z-index-modal__controls;
                 top: 73px;
 
                 .checkbox-item {
@@ -36,12 +38,11 @@
                     text-align: start;
 
                     &__label {
-                        font-family: 'Montserrat';
                         font-style: normal;
                         font-weight: 400;
-                        font-size: 20px;
-                        line-height: 24px;
-                        color: #FFFFFF;
+                        font-size: $font-size-xs;
+                        line-height: $line-height-xs;
+                        color: $white-color;
                         mix-blend-mode: normal;
                         opacity: 0.8;
                     }
@@ -56,12 +57,11 @@
     }
 
     &__heading, &__label, &__text-input {
-        font-family: 'Montserrat';
         font-style: normal;
     }
 
     &__heading, &__text-input {
-        color: #FFFFFF;
+        color: $white-color;
         align-self: start;
     }
 
@@ -71,8 +71,8 @@
 
     &__heading {
         font-weight: 300;
-        font-size: 40px;
-        line-height: 49px;
+        font-size: $font-size-xxl;
+        line-height: $line-height-xxl;
         letter-spacing: 1px;
         text-transform: uppercase;
         margin-bottom: 24px;
@@ -81,11 +81,11 @@
 
     &__label {
         font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
+        font-size: $font-size-m;
+        line-height: $line-height-m;
         letter-spacing: 0.888889px;
         text-transform: uppercase;
-        color: #F65261;
+        color: $dark-indian-red-color;
         opacity: 0.8;
         margin-bottom: 13px;
         align-self: flex-start;
@@ -93,8 +93,8 @@
 
     &__text-input {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
         opacity: 0.8;
         width: 100%;
         background: rgba(50, 50, 50, 0.948044);
@@ -116,28 +116,27 @@
         align-self: flex-end;
         margin-top: 48px;
 
-        .reset-button, .submit-button {
-            font-family: 'Montserrat';
+        &__reset-button, &__submit-button {
             font-style: normal;
             font-weight: 500;
-            font-size: 20px;
-            line-height: 24px;
+            font-size: $font-size-xs;
+            line-height: $line-height-xs;
             text-align: center;
             text-transform: uppercase;
-            border: 1.5px solid #F65261;
-            border-radius: 4px;
+            border: 1.5px solid $dark-indian-red-color;
+            border-radius: $border-radius-standard;
             width: 180px;
             padding: 15px 0;
         }
 
-        .reset-button {
+        &__reset-button {
             margin-right: 13px;
-            color: #F65261;
+            color: $dark-indian-red-color;
         }
 
-        .submit-button {
-            color: #FFFFFF;
-            background: #F65261;
+        &__submit-button {
+            color: $white-color;
+            background: $dark-indian-red-color;
         }
     }
 }

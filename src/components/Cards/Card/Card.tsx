@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useContext, memo } from 'react';
 
 import { ICard } from './Card.types';
 
@@ -73,23 +73,23 @@ function Card({
 
   return (
     <li className="card">
-      <img className="poster" src={movieUrl} alt={title} />
-      <div className="description">
-        <p className="title">{title}</p>
-        <p className="genre">{genre.join(', ')}</p>
-        <p className="release-date">{new Date(releaseDate).getFullYear()}</p>
+      <img className="card__poster" src={movieUrl} alt={title} />
+      <div className="card__description">
+        <p className="card__description__title">{title}</p>
+        <p className="card__description__genre">{genre.join(', ')}</p>
+        <p className="card__description__release-date">{new Date(releaseDate).getFullYear()}</p>
       </div>
       {!isSettingsShowing ? (
-        <button onClick={onButtonClick} className="more" type="button">
-          <img src={more} alt="more" />
+        <button onClick={onButtonClick} className="card__more-button" type="button">
+          <img className="card__more-button__icon" src={more} alt="more" />
         </button>
       ) : (
-        <div className="settings">
+        <div className="card__settings">
           <CloseButton onClick={onButtonClick} size="xs" />
-          <button onClick={onEditClick} className="edit" type="button">
+          <button onClick={onEditClick} className="card__settings__edit-button" type="button">
             Edit
           </button>
-          <button onClick={onDeleteClick} className="delete" type="button">
+          <button onClick={onDeleteClick} className="card__settings__delete-button" type="button">
             Delete
           </button>
         </div>
@@ -98,4 +98,4 @@ function Card({
   );
 }
 
-export default Card;
+export default memo(Card);

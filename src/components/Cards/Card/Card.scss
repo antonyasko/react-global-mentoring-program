@@ -1,3 +1,5 @@
+@import '../../../global.scss';
+
 .card {
     position: relative;
     list-style-type: none;
@@ -6,86 +8,84 @@
     margin-bottom: 40px;
     margin-right: 24px;
 
-    .poster {
+    &__poster {
         width: 100%;
         height: 430px;
     }
 
-    .description {
+    &__description {
         position: absolute;
         top: 430px;
 
-        .title, .release-date, .genre {
+        &__title, &__genre, &__release-date {
             margin: 0;
-            color: #FFFFFF;
-            font-family: 'Montserrat';
+            color: $white-color;
             font-style: normal;
             font-weight: 500;
             mix-blend-mode: normal;
         }
 
-        .title, .release-date {
+        &__title, &__release-date {
             opacity: 0.7;
         }
 
-        .title, .genre {
+        &__title, &__genre {
             text-align: start;
         }
 
-        .release-date, .genre {
-            font-size: 14px;
+        &__release-date, &__genre {
+            font-size: $font-size-s;
         }
 
-        .title {
+        &__title {
             width: 232px;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: $font-size-l;
+            line-height: $line-height-l;
             margin-top: 16px;
         }
 
-        .genre {
+        &__genre {
             width: 323px;
             opacity: 0.5;
             margin-top: 8px;
-            line-height: 17px;
+            line-height: $line-height-s;
         }
 
-        .release-date {
+        &__release-date {
             text-align: center;
-            border: 1px solid #979797;
-            border-radius: 4px;
+            border: 1px solid $light-gray-color;
+            border-radius: $border-radius-standard;
             width: 66px;
-            height: 24px;
             position: absolute;
             right: 0;
             bottom: 23px;
-            line-height: 24px;
+            line-height: $line-height-xs;
         }
     }
 
-    .more, .settings {
+    &__more-button, &__settings {
         position: absolute;
         top: 16px;
         right: 16px;
     }
 
-    .more {
+    &__more-button {
         padding: 0;
         border-radius: 50%;
         width: 36px;
         height: 36px;
-        background-color: #2A202D;
+        background-color: $dark-indigo-color;
 
-        img {
+        &__icon {
             display: block;
             width: 36px;
             height: 36px;
         }
     }
 
-    .settings {
+    &__settings {
         background: rgba(35, 35, 35, 0.918051);
-        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.1), 0px 10px 50px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), $box-shadow-standard;
         backdrop-filter: blur(13.5914px);
         border-radius: 4px;
         width: 190px;
@@ -94,26 +94,25 @@
         flex-direction: column;
         justify-content: center;
 
-        .edit, .delete {
+        &__edit-button, &__delete-button {
             width: 100%;
             height: 34px;
-            background: #F65261;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.1), 0px 10px 50px rgba(0, 0, 0, 0.1);
+            background: $dark-indian-red-color;
+            box-shadow: $box-shadow-standard;
             backdrop-filter: blur(13.5914px);
-            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
-            font-size: 16px;
-            line-height: 20px;
-            color: #FFFFFF;
+            font-size: $font-size-m;
+            line-height: $line-height-m;
+            color: $white-color;
         }
 
-        .edit {
+        &__edit-button {
             margin-top: 24px;
             margin-bottom: 6px;
         }
 
-        .close {
+        .close-button {
             position: absolute;
             top: 8px;
             right: 12px;

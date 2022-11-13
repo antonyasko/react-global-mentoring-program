@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 
 import ChangeMoviesForm from '../ChangeMoviesForm/ChangeMoviesForm';
 import ModalContext from '../../store/modalContext';
@@ -22,4 +22,4 @@ function AddMovieButton(): JSX.Element {
   );
 }
 
-export default AddMovieButton;
+export default memo(AddMovieButton);

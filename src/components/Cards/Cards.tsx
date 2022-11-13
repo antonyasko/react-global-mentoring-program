@@ -1,7 +1,6 @@
-import React, { useCallback, useContext } from 'react';
+import React, { memo, useCallback, useContext } from 'react';
 
 import Card from './Card/Card';
-import { ICardData } from './Card/Card.types';
 
 import CardsDataContext from '../../store/cardsDataContext';
 
@@ -39,4 +38,4 @@ function Cards(): JSX.Element {
   );
 }
 
-export default Cards;
+export default memo(Cards);

@@ -1,20 +1,21 @@
+@import '../../global.scss';
+
 .add-movie {
-    width: 177px;
+    $button-width: 177px;
+
+    width: $button-width;
     height: 46px;
     background: rgba(96, 96, 96, 0.68);
-    border: none;
-    border-radius: 4px;
-    font-family: 'Montserrat';
+    border-radius: $border-radius-standard;
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
     text-align: center;
     text-transform: uppercase;
-    color: #F65261;
-    cursor: pointer;
+    color: $dark-indian-red-color;
     position: relative;
-    left: calc(50% - 177px * 0.5 - 36px);
+    left: calc(50% - #{$button-width} * 0.5 - 36px);
     top: -38px;
-    z-index: 1;
+    z-index: $z-index-page;
 }

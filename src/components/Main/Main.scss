@@ -1,5 +1,7 @@
+@import '../../global.scss';
+
 .main-content {
-    background-color: #232323;
+    background-color: $dark-gray-color;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -12,36 +14,30 @@
         height: 60px;
         width: calc(100% - 2 * 57px);
 
-        .card-filters {
+        &__filters {
             display: flex;
             align-items: center;
 
-            .filters-label {
-                font-family: 'Montserrat';
+            &__label, &__select, &__option {
+                font-size: $font-size-m;
+                line-height: $line-height-m;
                 font-style: normal;
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 20px;
                 letter-spacing: 0.888889px;
                 text-transform: uppercase;
-                color: #FFFFFF;
+                color: $white-color;
+            }
+
+            &__label {
+                font-weight: 400;
                 mix-blend-mode: normal;
                 opacity: 0.6;
                 margin-right: 31px
             }
 
-            select, option {
-                background-color: #232323;
-                font-family: 'Montserrat';
-                font-style: normal;
+            &__select, &__option {
+                background-color: $dark-gray-color;
                 font-weight: 500;
-                font-size: 16px;
-                line-height: 20px;
-                letter-spacing: 0.888889px;
-                text-transform: uppercase;
-                color: #FFFFFF;
                 border: none;
-                cursor: pointer;
             }
         }
     }
@@ -49,23 +45,22 @@
     .line {
         height: 2px;
         width: calc(100% - 57px * 2);
-        background-color: #424242;
-        border-bottom: 2px solid #080707;
+        background-color: $gray-color;
+        border-bottom: 2px solid $not-black-color;
         position: relative;
         top: -5px;
         left: 57px;
     }
 
     .cards-counter {
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
-        line-height: 24px;
-        color: #FFFFFF;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+        color: $white-color;
         margin: 24px 57px 28px;
 
-        .count {
+        &__value {
             font-weight: bold;
         }
     }

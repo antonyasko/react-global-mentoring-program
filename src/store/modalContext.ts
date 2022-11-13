@@ -1,11 +1,6 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 /* eslint-disable @typescript-eslint/no-empty-function */
 
-interface IModalState {
-  isOpen: boolean;
-  content: JSX.Element | JSX.Element[] | null;
-}
-
 interface IModalContext {
   isOpen: boolean;
   content: JSX.Element | JSX.Element[] | null;

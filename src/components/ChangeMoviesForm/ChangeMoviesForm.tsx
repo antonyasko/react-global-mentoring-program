@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useId, useState, useContext, SyntheticEvent } from 'react';
+import React, { ChangeEvent, useId, useState, useContext, SyntheticEvent, memo } from 'react';
 
 import { IChangeMoviesForm } from './ChangeMoviesForm.types';
 
@@ -90,7 +90,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
       <h2 className="change-movies-form__heading">{heading}</h2>
 
       <div className="change-movies-form__inputs">
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputTitleId}>
             Title
           </label>
@@ -105,7 +105,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           />
         </div>
 
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputDateId}>
             Release Date
           </label>
@@ -120,7 +120,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           />
         </div>
 
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputMovieUrlId}>
             Movie url
           </label>
@@ -135,7 +135,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           />
         </div>
 
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputRatingId}>
             Rating
           </label>
@@ -150,7 +150,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           />
         </div>
 
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputGenreId}>
             Genre
           </label>
@@ -184,7 +184,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           )}
         </div>
 
-        <div className="input-wrapper">
+        <div className="change-movies-form__inputs__input-wrapper">
           <label className="change-movies-form__label" htmlFor={inputRuntimeId}>
             Runtime
           </label>
@@ -199,7 +199,7 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
           />
         </div>
 
-        <div className="input-wrapper textarea">
+        <div className="change-movies-form__inputs__input-wrapper textarea">
           <label className="change-movies-form__label" htmlFor={inputRuntimeId}>
             Overview
           </label>
@@ -215,10 +215,18 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
       </div>
 
       <div className="change-movies-form__form-controls">
-        <button className="reset-button" type="button" onClick={resetForm}>
+        <button
+          className="change-movies-form__form-controls__reset-button"
+          type="button"
+          onClick={resetForm}
+        >
           Reset
         </button>
-        <button className="submit-button" type="submit" onClick={submitForm}>
+        <button
+          className="change-movies-form__form-controls__submit-button"
+          type="submit"
+          onClick={submitForm}
+        >
           Submit
         </button>
       </div>
@@ -226,4 +234,4 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
   );
 }
 
-export default ChangeMoviesForm;
+export default memo(ChangeMoviesForm);

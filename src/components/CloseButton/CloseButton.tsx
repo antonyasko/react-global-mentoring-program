@@ -8,8 +8,8 @@ import './CloseButton.scss';
 
 function CloseButton({ onClick, size = 'xs' }: ICloseButton): JSX.Element {
   return (
-    <button onClick={onClick} className={`close ${size}`} type="button">
-      <img src={close} alt="close" className="close-icon" />
+    <button onClick={onClick} className={`close-button ${size}`} type="button">
+      <img src={close} alt="close" className="close-button__icon" />
     </button>
   );
 }
