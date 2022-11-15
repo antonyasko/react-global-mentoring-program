@@ -71,9 +71,19 @@ function Card({
     });
   }
 
+  function onCardClick(): void {
+    console.log('Show card info');
+  }
+
   return (
     <li className="card">
-      <img className="card__poster" src={movieUrl} alt={title} />
+      <img
+        className="card__poster"
+        src={movieUrl}
+        alt={title}
+        onClick={onCardClick}
+        role="presentation"
+      />
       <div className="card__description">
         <p className="card__description__title">{title}</p>
         <p className="card__description__genre">{genre.join(', ')}</p>

@@ -1,4 +1,4 @@
-interface ICardData {
+export interface ICardData {
   id: string;
   movieUrl: string;
   title: string;
