@@ -1,0 +1,142 @@
+@import '../../global.scss';
+
+.change-movies-form {
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: 521px 301px;
+        gap: 16px;
+
+        &__input-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            position: relative;
+
+            &.textarea {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+
+            .checkbox_list {
+                position: absolute;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                width: 100%;
+                background-color: $dark-gray-color;
+                z-index: $z-index-modal__controls;
+                top: 73px;
+
+                .checkbox-item {
+                    list-style-type: none;
+                    padding: 8px;
+                    text-align: start;
+
+                    &__label {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: $font-size-xs;
+                        line-height: $line-height-xs;
+                        color: $white-color;
+                        mix-blend-mode: normal;
+                        opacity: 0.8;
+                    }
+
+                    &__input {
+                        margin: 2px;
+                        margin-right: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__heading, &__label, &__text-input {
+        font-style: normal;
+    }
+
+    &__heading, &__text-input {
+        color: $white-color;
+        align-self: start;
+    }
+
+    &__label, &__text-input {
+        mix-blend-mode: normal;
+    }
+
+    &__heading {
+        font-weight: 300;
+        font-size: $font-size-xxl;
+        line-height: $line-height-xxl;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        margin-top: 0;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: $font-size-m;
+        line-height: $line-height-m;
+        letter-spacing: 0.888889px;
+        text-transform: uppercase;
+        color: $dark-indian-red-color;
+        opacity: 0.8;
+        margin-bottom: 13px;
+        align-self: flex-start;
+    }
+
+    &__text-input {
+        font-weight: 400;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+        opacity: 0.8;
+        width: 100%;
+        background: rgba(50, 50, 50, 0.948044);
+        padding: 8px;
+        box-sizing: border-box;
+        border: 0;
+
+        &.button {
+            color: rgba(255, 255, 255, 0.3);
+            text-align: start;
+        }
+
+        &:active {
+            opacity: 1;
+        }
+    }
+
+    &__form-controls {
+        align-self: flex-end;
+        margin-top: 48px;
+
+        &__reset-button, &__submit-button {
+            font-style: normal;
+            font-weight: 500;
+            font-size: $font-size-xs;
+            line-height: $line-height-xs;
+            text-align: center;
+            text-transform: uppercase;
+            border: 1.5px solid $dark-indian-red-color;
+            border-radius: $border-radius-standard;
+            width: 180px;
+            padding: 15px 0;
+        }
+
+        &__reset-button {
+            margin-right: 13px;
+            color: $dark-indian-red-color;
+        }
+
+        &__submit-button {
+            color: $white-color;
+            background: $dark-indian-red-color;
+        }
+    }
+}

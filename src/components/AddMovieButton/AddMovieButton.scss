@@ -1,0 +1,21 @@
+@import '../../global.scss';
+
+.add-movie {
+    $button-width: 177px;
+
+    width: $button-width;
+    height: 46px;
+    background: rgba(96, 96, 96, 0.68);
+    border-radius: $border-radius-standard;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
+    text-align: center;
+    text-transform: uppercase;
+    color: $dark-indian-red-color;
+    position: relative;
+    left: calc(50% - #{$button-width} * 0.5 - 36px);
+    top: -38px;
+    z-index: $z-index-page;
+}
