@@ -5,5 +5,15 @@
 
     &.with-movie-details {
         height: 606px;
+
+        .logo {
+            padding-top: 35px;
+        }
+    }
+
+    &__back-to-search {
+        position: absolute;
+        top: 35px;
+        right: 60px;
     }
 }

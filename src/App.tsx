@@ -7,6 +7,7 @@ import CardsDataContext from './store/cardsDataContext';
 import ModalContext from './store/modalContext';
 
 import './App.scss';
+import MovieDetailsContext from './store/movieDetailsContext';
 
 function App(): JSX.Element {
   const [cards, setCards] = useState(cardsData);
@@ -16,6 +17,13 @@ function App(): JSX.Element {
   }>({
     isOpen: false,
     content: null,
+  });
+  const [movieDetails, setMovieDetails] = useState<{
+    isMovieDetailsShowing: boolean;
+    movieId: string;
+  }>({
+    isMovieDetailsShowing: false,
+    movieId: '',
   });
 
   const cardsContext = useMemo(
@@ -34,13 +42,23 @@ function App(): JSX.Element {
     [modalState, setModalState]
   );
 
+  const movieDetailsContext = useMemo(
+    () => ({
+      ...movieDetails,
+      setMovieDetails,
+    }),
+    [movieDetails, setMovieDetails]
+  );
+
   return (
     <div className="App">
-      <ModalContext.Provider value={modalContext}>
-        <CardsDataContext.Provider value={cardsContext}>
-          <HomePage />
-        </CardsDataContext.Provider>
-      </ModalContext.Provider>
+      <MovieDetailsContext.Provider value={movieDetailsContext}>
+        <ModalContext.Provider value={modalContext}>
+          <CardsDataContext.Provider value={cardsContext}>
+            <HomePage />
+          </CardsDataContext.Provider>
+        </ModalContext.Provider>
+      </MovieDetailsContext.Provider>
     </div>
   );
 }

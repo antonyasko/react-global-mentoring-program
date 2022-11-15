@@ -5,7 +5,9 @@ import { ICard } from './Card.types';
 import CloseButton from '../../CloseButton/CloseButton';
 import DeleteMovieForm from '../../DeleteMovieForm/DeleteMovieForm';
 import ChangeMoviesForm from '../../ChangeMoviesForm/ChangeMoviesForm';
+
 import ModalContext from '../../../store/modalContext';
+import MovieDetailsContext from '../../../store/movieDetailsContext';
 
 import more from '../../../assets/svg/more.svg';
 
@@ -25,6 +27,7 @@ function Card({
   const [isSettingsShowing, setIsSettingsShowing] = useState<boolean>(false);
 
   const { setModalState } = useContext(ModalContext);
+  const { setMovieDetails } = useContext(MovieDetailsContext);
 
   const onButtonClick = useCallback(() => {
     setIsSettingsShowing((p) => !p);
@@ -72,7 +75,7 @@ function Card({
   }
 
   function onCardClick(): void {
-    console.log('Show card info');
+    setMovieDetails({ isMovieDetailsShowing: true, movieId: id });
   }
 
   return (

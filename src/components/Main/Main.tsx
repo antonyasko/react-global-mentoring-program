@@ -1,6 +1,6 @@
 import React, { memo, useContext } from 'react';
 
-import { GenreToggler } from '../GenreToggler/GenreToggler';
+import GenreToggler from '../GenreToggler/GenreToggler';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
 import CardsDataContext from '../../store/cardsDataContext';
