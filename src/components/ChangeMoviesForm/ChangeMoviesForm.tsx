@@ -1,18 +1,42 @@
-import React, { ChangeEvent, useId, useState, useContext, SyntheticEvent, memo } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, {
+  ChangeEvent,
+  useId,
+  useState,
+  useContext,
+  SyntheticEvent,
+  memo,
+  useMemo,
+} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { IChangeMoviesForm } from './ChangeMoviesForm.types';
 
-import CardsDataContext from '../../store/cardsDataContext';
-import ModalContext from '../../store/modalContext';
-
 import { ICardData } from '../Cards/Card/Card.types';
-import { genres } from './ChangeMoviesForm.data';
+
+import ModalContext from '../../store/modalContext';
+import { IState } from '../../store/types';
+import { createCard, updateCard } from '../../store/actions/cardsDataAction';
 
 import './ChangeMoviesForm.scss';
 
 function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Element {
-  const { setCards } = useContext(CardsDataContext);
+  const dispatch = useDispatch();
   const { setModalState } = useContext(ModalContext);
+  const cards = useSelector((state: IState) => state?.cardsData);
+
+  const genres = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          cards.reduce((acc, { genre }) => {
+            acc.push(...genre);
+            return acc;
+          }, [] as string[])
+        )
+      ),
+    [cards]
+  );
 
   const initialCardData =
     type === 'add'
@@ -62,17 +86,12 @@ function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Eleme
     event.preventDefault();
 
     if (type === 'add') {
-      setCards((prev) => [...prev, { ...cardData, id: cardData.movieUrl }]);
+      // @ts-ignore
+      dispatch(createCard(cardData));
     } else {
-      setCards((prev) =>
-        prev.map((prevCard) => {
-          if (prevCard.id === card!.id) {
-            return { ...prevCard, ...cardData };
-          }
+      // @ts-ignore
 
-          return prevCard;
-        })
-      );
+      dispatch(updateCard(cardData));
     }
 
     setModalState({

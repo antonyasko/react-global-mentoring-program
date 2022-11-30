@@ -5,6 +5,7 @@ import { IGenreTogglerProps } from './GenreToggler.types';
 import './GenreToggler.scss';
 
 function GenreToggler({ genres }: IGenreTogglerProps): JSX.Element {
+  console.log('genres111', genres);
   const [togglerState, setTogglerState] = useState({
     activeGenre: 'all',
     genres,
@@ -21,7 +22,7 @@ function GenreToggler({ genres }: IGenreTogglerProps): JSX.Element {
 
   return (
     <div className="container genre-toggler">
-      {togglerState.genres.map((genre) => (
+      {genres.map((genre) => (
         <button
           type="button"
           className={`genre-toggler__button ${genre === togglerState.activeGenre ? 'active' : ''}`}

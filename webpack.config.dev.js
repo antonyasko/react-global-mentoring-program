@@ -12,7 +12,10 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.js', '.ts', '.tsx'],
+    alias: {
+      '@Components': path.resolve(__dirname, './src/components'),
+    },
   },
   module: {
     rules: [

@@ -1,21 +1,26 @@
-import React, { memo, useCallback, useContext } from 'react';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { memo, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Card from './Card/Card';
 
-import CardsDataContext from '../../store/cardsDataContext';
+import { IState } from '../../store/types';
+import { deleteCard } from '../../store/actions/cardsDataAction';
 
 import './Cards.scss';
 
 function Cards(): JSX.Element {
-  // For testing ErrorBoundary
+  const cards = useSelector((state: IState) => state?.cardsData);
+  // For testing ErrorBoundary uncomment next line
   // throw Error;
-  const { cards, setCards } = useContext(CardsDataContext);
+  const dispatch = useDispatch();
 
   const deleteMovie = useCallback(
     (id: string): void => {
-      setCards(cards.filter((card) => card.id !== id));
+      // @ts-ignore
+      dispatch(deleteCard(id));
     },
-    [cards, setCards]
+    [dispatch]
   );
 
   return (

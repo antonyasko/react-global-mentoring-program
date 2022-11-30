@@ -11,56 +11,36 @@ import logo from '../../assets/images/header.jpg';
 import search from '../../assets/svg/search.svg';
 
 import './Header.scss';
-import CardsDataContext from '../../store/cardsDataContext';
 
 function Header(): JSX.Element {
-  const { cards } = useContext(CardsDataContext);
-  const { isMovieDetailsShowing, movieId, setMovieDetails } = useContext(MovieDetailsContext);
-  const {
-    movieUrl = '',
-    title = '',
-    overview = '',
-    releaseDate = '',
-    rating = '',
-    runtime = '',
-    id = '',
-    genre = [''],
-  } = cards.find((item) => item.id === movieId) || {};
+  // const { cards } = useContext(CardsDataContext);
+  // const { isMovieDetailsShowing, movieId, setMovieDetails } = useContext(MovieDetailsContext);
+  // const {
+  //   movieUrl = '',
+  //   title = '',
+  //   overview = '',
+  //   releaseDate = '',
+  //   rating = '',
+  //   runtime = '',
+  //   id = '',
+  //   genre = [''],
+  // } = cards.find((item) => item.id === movieId) || {};
 
   function onBackToSearchClick(): void {
-    setMovieDetails({ isMovieDetailsShowing: false, movieId: '' });
+    // setMovieDetails({ isMovieDetailsShowing: false, movieId: '' });
   }
 
   return (
     <header
-      className={`header${isMovieDetailsShowing ? ' with-movie-details' : ''}`}
+      className="header"
       style={{
-        background: isMovieDetailsShowing ? '#232323' : `url('${logo}')`,
+        background: `url('${logo}')`,
       }}
     >
       <Logo isMain />
-      {isMovieDetailsShowing ? (
-        <>
-          <button onClick={onBackToSearchClick} className="header__back-to-search" type="button">
-            <img className="card__more-button__icon" src={search} alt="search" />
-          </button>
-          <MovieDetails
-            movieUrl={movieUrl}
-            title={title}
-            overview={overview}
-            releaseDate={releaseDate}
-            rating={rating}
-            runtime={runtime}
-            id={id}
-            genre={genre}
-          />
-        </>
-      ) : (
-        <>
-          <AddMovieButton />
-          <SearchForm />
-        </>
-      )}
+
+      <AddMovieButton />
+      <SearchForm />
     </header>
   );
 }

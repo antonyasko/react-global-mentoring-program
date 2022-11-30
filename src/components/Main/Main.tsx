@@ -1,20 +1,37 @@
-import React, { memo, useContext } from 'react';
+import React, { useMemo, memo } from 'react';
+import { useSelector } from 'react-redux';
 
+import { IState } from '../../store/types';
 import GenreToggler from '../GenreToggler/GenreToggler';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
-import CardsDataContext from '../../store/cardsDataContext';
 
 import './Main.scss';
 
 function Main(): JSX.Element {
-  const { cards } = useContext(CardsDataContext);
+  const cards = useSelector((state: IState) => state?.cardsData);
+
+  const genres = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          cards.reduce(
+            (acc, { genre }) => {
+              acc.push(...genre);
+              return acc;
+            },
+            ['all']
+          )
+        )
+      ),
+    [cards]
+  );
 
   return (
     <main className="main-content">
       <ErrorBoundary>
         <nav className="cards-navigation">
-          <GenreToggler genres={['all', 'documentary', 'comedy', 'horror', 'crime']} />
+          <GenreToggler genres={genres.slice(0, 5)} />
           <div className="cards-navigation__filters">
             <label className="cards-navigation__filters__label" htmlFor="filters">
               sort by

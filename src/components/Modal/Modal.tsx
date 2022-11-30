@@ -43,7 +43,7 @@ function Modal({ children }: IModal): JSX.Element {
     return () => {
       modalRoot?.removeChild(current);
     };
-  }, []);
+  }, [modalRoot]);
 
   return createPortal(modal, el.current);
 }

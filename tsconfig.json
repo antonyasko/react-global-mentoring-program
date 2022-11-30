@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@Components/*": ["./src/components/*"]
+    },
     "target": "ESNext",
     "sourceMap": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -15,5 +19,6 @@
     "jsx": "react",
     "removeComments": true
   },
-  "exclude": ["node_modules", "webpack.config.js", "dist"]
+  "exclude": ["node_modules", "webpack.config.js", "dist"],
+  "include": ["src"]
 }
