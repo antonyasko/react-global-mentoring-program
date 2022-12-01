@@ -1,0 +1,22 @@
+@import '../../global.scss';
+
+.genre-toggler {
+  background-color: $dark-gray-color;
+
+  &__button {
+    height: 57px;
+    padding: 15px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: $font-size-m;
+    line-height: $line-height-m;
+    text-transform: uppercase;
+    color: $white-color;
+    border-bottom: 4px solid $dark-gray-color;
+
+    &.active {
+      border-color: $dark-indian-red-color;
+      z-index: $z-index-modal;
+    }
+  }
+}

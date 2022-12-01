@@ -1,0 +1,52 @@
+@import '../../global.scss';
+
+.search-form-container {
+  .search-form {
+    position: relative;
+    height: 144px;
+    display: flex;
+    align-items: flex-end;
+
+    &__label, &__button {
+      text-align: center;
+      text-transform: uppercase;
+      color: $white-color;
+    }
+
+    &__input, &__button {
+      font-size: $font-size-xs;
+      font-style: normal;
+      line-height: $line-height-xs;
+      border-radius: $border-radius-standard;
+    }
+
+    &__label {
+      position: absolute;
+      width: 392px;
+      top: 0;
+      font-weight: 300;
+      font-size: $font-size-xxl;
+      line-height: $line-height-xxl;
+      letter-spacing: 1px;
+    }
+
+    &__input {
+      background: rgba(50, 50, 50, 0.8);
+      opacity: 0.7;
+      width: 675px;
+      padding: 17px 19px 16px;
+      font-weight: 400;
+      color: $white-color;
+      mix-blend-mode: normal;
+      margin-right: 14px;
+      border: none;
+    }
+
+    &__button {
+      background: $dark-indian-red-color;
+      width: 233px;
+      height: 57px;
+      font-weight: 500;
+    }
+  }
+}

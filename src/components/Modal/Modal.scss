@@ -1,0 +1,31 @@
+@import '../../global.scss';
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(35, 35, 35, 0.5);
+    mix-blend-mode: normal;
+    backdrop-filter: blur(12.2323px);
+    z-index: $z-index-modal; 
+
+    .modal {
+        width: max-content;
+        background: $dark-gray-color;
+        box-shadow: $box-shadow-standard;
+        margin: 50px auto 0;
+        position: relative;
+
+        .close-button {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        &-wrapper {
+            padding: 24px;
+        }
+    }
+}
