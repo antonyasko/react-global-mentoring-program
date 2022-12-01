@@ -34,15 +34,34 @@ function Header(): JSX.Element {
 
   return (
     <header
-      className="header"
+      className={`header${isMovieDetailsShowing ? ' with-movie-details' : ''}`}
       style={{
-        background: `url('${logo}')`,
+        background: isMovieDetailsShowing ? '#232323' : `url('${logo}')`,
       }}
     >
       <Logo isMain />
-
-      <AddMovieButton />
-      <SearchForm />
+      {isMovieDetailsShowing ? (
+        <>
+          <button onClick={onBackToSearchClick} className="header__back-to-search" type="button">
+            <img className="card__more-button__icon" src={search} alt="search" />
+          </button>
+          <MovieDetails
+            movieUrl={movieUrl}
+            title={title}
+            overview={overview}
+            releaseDate={releaseDate}
+            rating={rating}
+            runtime={runtime}
+            id={id}
+            genre={genre}
+          />
+        </>
+      ) : (
+        <>
+          <AddMovieButton />
+          <SearchForm />
+        </>
+      )}
     </header>
   );
 }
