@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 
 import { cardsDataReducer } from './cardsDataReducer';
-// import { modalReducer } from '';
-// import { movieDetailsReducer } from '';
+import { cardsFiltersReducer } from './cardsFiltersReducer';
 
 const rootReducer = combineReducers({
   cardsData: cardsDataReducer,
-  //   modal: modalReducer,
-  //   movieDetails: movieDetailsReducer,
+  filters: cardsFiltersReducer,
 });
 
 export default rootReducer;

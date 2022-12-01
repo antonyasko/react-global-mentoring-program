@@ -15,7 +15,7 @@ import { IChangeMoviesForm } from './ChangeMoviesForm.types';
 import { ICardData } from '../Cards/Card/Card.types';
 
 import ModalContext from '../../store/modalContext';
-import { IState } from '../../store/types';
+import { ICardsDataState } from '../../store/types';
 import { createCard, updateCard } from '../../store/actions/cardsDataAction';
 
 import './ChangeMoviesForm.scss';
@@ -23,7 +23,7 @@ import './ChangeMoviesForm.scss';
 function ChangeMoviesForm({ heading, type, card }: IChangeMoviesForm): JSX.Element {
   const dispatch = useDispatch();
   const { setModalState } = useContext(ModalContext);
-  const cards = useSelector((state: IState) => state?.cardsData);
+  const cards = useSelector((state: ICardsDataState) => state.cardsData);
 
   const genres = useMemo(
     () =>

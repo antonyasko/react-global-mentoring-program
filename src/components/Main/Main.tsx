@@ -1,15 +1,19 @@
-import React, { useMemo, memo } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useMemo, memo, ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { IState } from '../../store/types';
 import GenreToggler from '../GenreToggler/GenreToggler';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Cards from '../Cards/Cards';
 
+import { CardsSortBy, sortByAction } from '../../store/actions/cardsFiltersAction';
+import { ICardsDataState, IFiltersState } from '../../store/types';
+
 import './Main.scss';
 
 function Main(): JSX.Element {
-  const cards = useSelector((state: IState) => state?.cardsData);
+  const cards = useSelector((state: ICardsDataState) => state.cardsData);
+  const { sortBy, showByGenre } = useSelector((state: IFiltersState) => state.filters);
+  const dispatch = useDispatch();
 
   const genres = useMemo(
     () =>
@@ -27,6 +31,21 @@ function Main(): JSX.Element {
     [cards]
   );
 
+  const filteredCards = useMemo(
+    () =>
+      cards.filter((card) => {
+        if (showByGenre === 'all') {
+          return true;
+        }
+        return card.genre.includes(showByGenre);
+      }),
+    [cards, showByGenre]
+  );
+
+  function onOptionClick(e: ChangeEvent<HTMLSelectElement>): void {
+    dispatch(sortByAction(e.target.value as CardsSortBy));
+  }
+
   return (
     <main className="main-content">
       <ErrorBoundary>
@@ -36,19 +55,24 @@ function Main(): JSX.Element {
             <label className="cards-navigation__filters__label" htmlFor="filters">
               sort by
             </label>
-            <select className="cards-navigation__filters__select" id="filters">
-              <option className="cards-navigation__filters__option" value="release date">
-                release date
-              </option>
+            <select
+              value={sortBy}
+              onChange={onOptionClick}
+              className="cards-navigation__filters__select"
+              id="filters"
+            >
               <option className="cards-navigation__filters__option" value="title">
                 title
+              </option>
+              <option className="cards-navigation__filters__option" value="release_date">
+                release date
               </option>
             </select>
           </div>
         </nav>
         <div className="line" />
         <span className="cards-counter">
-          <span className="cards-counter__value">{cards.length}</span> movies found
+          <span className="cards-counter__value">{filteredCards.length}</span> movies found
         </span>
         <Cards />
       </ErrorBoundary>

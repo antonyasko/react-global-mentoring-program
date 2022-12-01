@@ -43,11 +43,6 @@ export interface IUpdateCardAction {
   payload: ICardData;
 }
 
-// export interface IUpdateCardAction {
-//   type: CardsDataActionTypes.UPDATE_CARD;
-//   payload: ICardData;
-// }
-
 export function getCards() {
   return async (dispatch: Dispatch<IGetCardsAction>): Promise<void> => {
     const response = await fetch('http://localhost:4000/movies');
@@ -59,13 +54,6 @@ export function getCards() {
     } as IGetCardsAction);
   };
 }
-
-// export function sortCards(predicate: string) {
-//   return {
-//     type: CardsDataActionTypes.LOAD_CARDS,
-//     payload: predicate,
-//   };
-// }
 
 export function deleteCard(id: string) {
   return async (dispatch: Dispatch<IDeleteCardAction>): Promise<void> => {
