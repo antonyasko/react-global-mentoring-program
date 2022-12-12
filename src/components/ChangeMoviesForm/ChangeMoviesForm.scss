@@ -137,6 +137,13 @@
         &__submit-button {
             color: $white-color;
             background: $dark-indian-red-color;
+
+            &:disabled {
+                background: none;
+                border-color: $light-gray-color;
+                color: $light-gray-color;
+                cursor: unset;
+            }
         }
     }
 }
