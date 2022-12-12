@@ -1,0 +1,28 @@
+.close-button {
+    $xs-size: 12px;
+    $xl-size: 22px;
+
+    &__icon {
+        display: block;
+    }
+
+    &.xs {
+        width: $xs-size;
+        height: $xs-size;
+
+        &__icon {
+            width: $xs-size;
+            height: $xs-size;
+        }
+    }
+
+    &.xl {
+        width: $xl-size;
+        height: $xl-size;
+
+        &__icon {
+            width: $xl-size;
+            height: $xl-size;
+        }
+    }
+}

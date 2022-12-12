@@ -1,0 +1,9 @@
+@import '../../global.scss';
+
+.error-message {
+    font-size: $font-size-xxl;
+    font-weight: bold;
+    line-height: $line-height-xxl;
+    color: $white-color;
+    margin: 128px auto;
+}
