@@ -1,5 +1,6 @@
 import React, { useMemo, memo, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import GenreToggler from '../GenreToggler/GenreToggler';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -14,6 +15,7 @@ function Main(): JSX.Element {
   const cards = useSelector((state: ICardsDataState) => state.cardsData);
   const { sortBy, showByGenre } = useSelector((state: IFiltersState) => state.filters);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const genres = useMemo(
     () =>
@@ -43,7 +45,10 @@ function Main(): JSX.Element {
   );
 
   function onOptionClick(e: ChangeEvent<HTMLSelectElement>): void {
-    dispatch(sortByAction(e.target.value as CardsSortBy));
+    const sortByValue = e.target.value as CardsSortBy;
+
+    dispatch(sortByAction(sortByValue));
+    navigate(`sortBy=${sortByValue}`);
   }
 
   return (

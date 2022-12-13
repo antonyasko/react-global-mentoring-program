@@ -1,5 +1,6 @@
 import React, { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import AddMovieButton from '../AddMovieButton/AddMovieButton';
 import Logo from '../Logo/Logo';
@@ -28,8 +29,11 @@ function Header(): JSX.Element {
     genre = [''],
   } = cards.find((item) => item.id === movieId) || {};
 
+  const navigate = useNavigate();
+
   function onBackToSearchClick(): void {
     setMovieDetails({ isMovieDetailsShowing: false, movieId: '' });
+    navigate('/search');
   }
 
   return (

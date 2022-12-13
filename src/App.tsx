@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import HomePage from './pages/HomePage/HomePage';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 import ModalContext from './store/modalContext';
 import MovieDetailsContext from './store/movieDetailsContext';
@@ -52,7 +54,13 @@ function App(): JSX.Element {
     <div className="App">
       <MovieDetailsContext.Provider value={movieDetailsContext}>
         <ModalContext.Provider value={modalContext}>
-          <HomePage />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Navigate to="/search" />} />
+              <Route path="/search/*" element={<HomePage />} />
+              <Route path="/*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
         </ModalContext.Provider>
       </MovieDetailsContext.Provider>
     </div>

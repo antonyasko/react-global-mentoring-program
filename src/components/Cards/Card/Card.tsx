@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useContext, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { ICard } from './Card.types';
 
@@ -28,6 +29,8 @@ function Card({
 
   const { setModalState } = useContext(ModalContext);
   const { setMovieDetails } = useContext(MovieDetailsContext);
+
+  const navigate = useNavigate();
 
   const onButtonClick = useCallback(() => {
     setIsSettingsShowing((p) => !p);
@@ -76,6 +79,7 @@ function Card({
 
   function onCardClick(): void {
     setMovieDetails({ isMovieDetailsShowing: true, movieId: id });
+    navigate(`movie=${id}`);
   }
 
   return (

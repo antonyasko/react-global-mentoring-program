@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState, SyntheticEvent, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { IGenreTogglerProps } from './GenreToggler.types';
 
@@ -12,10 +13,13 @@ import './GenreToggler.scss';
 function GenreToggler({ genres }: IGenreTogglerProps): JSX.Element {
   const dispatch = useDispatch();
   const { showByGenre } = useSelector((state: IFiltersState) => state.filters);
+  const navigate = useNavigate();
 
   function onButtonClick(e: SyntheticEvent<HTMLButtonElement>): void {
+    const genre = (e.target as HTMLButtonElement).dataset.genre as string;
     // @ts-ignore
-    dispatch(showByGenreAction((e.target as HTMLButtonElement).dataset.genre as string));
+    dispatch(showByGenreAction(genre));
+    navigate(`genre=${genre}`);
   }
 
   return (
