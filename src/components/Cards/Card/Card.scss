@@ -1,0 +1,129 @@
+@import '../../../global.scss';
+
+.card {
+    position: relative;
+    list-style-type: none;
+    width: 323px;
+    height: 500px;
+    margin-bottom: 40px;
+    margin-right: 24px;
+
+    &__poster {
+        width: 100%;
+        height: 430px;
+        cursor: pointer;
+    }
+
+    &__description {
+        position: absolute;
+        top: 430px;
+
+        &__title, &__genre, &__release-date {
+            margin: 0;
+            color: $white-color;
+            font-style: normal;
+            font-weight: 500;
+            mix-blend-mode: normal;
+        }
+
+        &__title, &__release-date {
+            opacity: 0.7;
+        }
+
+        &__title, &__genre {
+            text-align: start;
+        }
+
+        &__release-date, &__genre {
+            font-size: $font-size-s;
+        }
+
+        &__title {
+            width: 232px;
+            font-size: $font-size-l;
+            line-height: $line-height-l;
+            margin-top: 16px;
+        }
+
+        &__genre {
+            width: 323px;
+            opacity: 0.5;
+            margin-top: 8px;
+            line-height: $line-height-s;
+        }
+
+        &__release-date {
+            text-align: center;
+            border: 1px solid $light-gray-color;
+            border-radius: $border-radius-standard;
+            width: 66px;
+            position: absolute;
+            right: 0;
+            bottom: 23px;
+            line-height: $line-height-xs;
+        }
+    }
+
+    &__more-button, &__settings {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    &__more-button {
+        display: none;
+        padding: 0;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        background-color: $dark-indigo-color;
+
+        &__icon {
+            display: block;
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    &__settings {
+        background: rgba(35, 35, 35, 0.918051);
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), $box-shadow-standard;
+        backdrop-filter: blur(13.5914px);
+        border-radius: 4px;
+        width: 190px;
+        height: 111px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__edit-button, &__delete-button {
+            width: 100%;
+            height: 34px;
+            background: $dark-indian-red-color;
+            box-shadow: $box-shadow-standard;
+            backdrop-filter: blur(13.5914px);
+            font-style: normal;
+            font-weight: 500;
+            font-size: $font-size-m;
+            line-height: $line-height-m;
+            color: $white-color;
+        }
+
+        &__edit-button {
+            margin-top: 24px;
+            margin-bottom: 6px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+        }
+    }
+
+    &:hover {
+        .card__more-button {
+            display: block;
+        }
+    }
+}
