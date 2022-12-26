@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useState, SyntheticEvent, memo } from 'react';
+import React, { SyntheticEvent, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +16,6 @@ function GenreToggler({ genres }: IGenreTogglerProps): JSX.Element {
 
   function onButtonClick(e: SyntheticEvent<HTMLButtonElement>): void {
     const genre = (e.target as HTMLButtonElement).dataset.genre as string;
-    // @ts-ignore
     dispatch(showByGenreAction(genre));
     navigate(`genre=${genre}`);
   }

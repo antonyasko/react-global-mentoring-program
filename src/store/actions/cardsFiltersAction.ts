@@ -10,7 +10,7 @@ interface ISortByAction {
   payload: CardsSortBy;
 }
 
-interface IShowByByAction {
+interface IShowByAction {
   type: CardsFilters.SHOW_BY_GENRE_CARDS;
   payload: string;
 }
@@ -22,11 +22,11 @@ export function sortByAction(sortBy: CardsSortBy): ISortByAction {
   };
 }
 
-export function showByGenreAction(genre: string): IShowByByAction {
+export function showByGenreAction(genre: string): IShowByAction {
   return {
     type: CardsFilters.SHOW_BY_GENRE_CARDS,
     payload: genre,
   };
 }
 
-export type CardsFiltersActions = ISortByAction | IShowByByAction;
+export type CardsFiltersActions = ISortByAction | IShowByAction;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GenreToggler /> should match snapshot 1`] = `
+<div
+  class="container genre-toggler"
+>
+  <button
+    class="genre-toggler__button active"
+    data-genre="all"
+    type="button"
+  >
+    all
+  </button>
+  <button
+    class="genre-toggler__button "
+    data-genre="comedy"
+    type="button"
+  >
+    comedy
+  </button>
+  <button
+    class="genre-toggler__button "
+    data-genre="action"
+    type="button"
+  >
+    action
+  </button>
+  <button
+    class="genre-toggler__button "
+    data-genre="triller"
+    type="button"
+  >
+    triller
+  </button>
+  <button
+    class="genre-toggler__button "
+    data-genre="test-genre"
+    type="button"
+  >
+    test-genre
+  </button>
+</div>
+`;

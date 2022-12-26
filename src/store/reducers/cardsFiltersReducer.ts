@@ -3,7 +3,7 @@ import { CardsFiltersActions, CardsFilters } from '../actions/cardsFiltersAction
 
 import { IFilters } from '../types';
 
-const initialFilters: IFilters = {
+export const initialFilters: IFilters = {
   sortBy: 'title',
   showByGenre: 'all',
 };
